@@ -1,6 +1,7 @@
 package com.phei.netty.ssl;
 
-public enum SSLMODE {
+public enum SSLMODE
+{
 
-    CA, CSA
+	CA, CSA
 }

@@ -25,17 +25,19 @@ import java.util.concurrent.TimeUnit;
  * @date 2014年2月15日
  * @version 1.0
  */
-public class TimeServerHandlerExecutePool {
+public class TimeServerHandlerExecutePool
+{
 
-    private ExecutorService executor;
+	private ExecutorService executor;
 
-    public TimeServerHandlerExecutePool(int maxPoolSize, int queueSize) {
-	executor = new ThreadPoolExecutor(Runtime.getRuntime()
-		.availableProcessors(), maxPoolSize, 120L, TimeUnit.SECONDS,
-		new ArrayBlockingQueue<java.lang.Runnable>(queueSize));
-    }
+	public TimeServerHandlerExecutePool(int maxPoolSize, int queueSize)
+	{
+		executor = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(), maxPoolSize, 120L,
+				TimeUnit.SECONDS, new ArrayBlockingQueue<java.lang.Runnable>(queueSize));
+	}
 
-    public void execute(java.lang.Runnable task) {
-	executor.execute(task);
-    }
+	public void execute(java.lang.Runnable task)
+	{
+		executor.execute(task);
+	}
 }
