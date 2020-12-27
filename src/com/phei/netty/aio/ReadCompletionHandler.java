@@ -34,7 +34,9 @@ public class ReadCompletionHandler implements CompletionHandler<Integer, ByteBuf
 	public ReadCompletionHandler(AsynchronousSocketChannel channel)
 	{
 		if (this.channel == null)
+		{
 			this.channel = channel;
+		}
 	}
 
 	@Override
