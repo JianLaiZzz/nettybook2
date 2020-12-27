@@ -136,7 +136,10 @@ public class TimeClientHandle implements Runnable
 					doWrite(sc);
 				}
 				else
-					System.exit(1);// 连接失败，进程退出
+				{
+					// 连接失败，进程退出
+					System.exit(1);
+				}
 			}
 			if (key.isReadable())
 			{
@@ -173,7 +176,9 @@ public class TimeClientHandle implements Runnable
 			doWrite(socketChannel);
 		}
 		else
+		{
 			socketChannel.register(selector, SelectionKey.OP_CONNECT);
+		}
 	}
 
 	private void doWrite(SocketChannel sc) throws IOException
@@ -184,7 +189,9 @@ public class TimeClientHandle implements Runnable
 		writeBuffer.flip();
 		sc.write(writeBuffer);
 		if (!writeBuffer.hasRemaining())
+		{
 			System.out.println("Send order 2 server succeed.");
+		}
 	}
 
 }
